@@ -139,10 +139,8 @@ function processProduct(num1, num2, callback) {
  * should return "sad".
 */
 function processContains(item, list, callback) {
-  return callback(list.filter(item => {
-    return item === item;
-  }));
-    }
+    return callback(list.includes(item));
+}
 
 
 /**
@@ -193,11 +191,6 @@ function getFullNames(runners) {
   });
   return runnersNew;
 }
-  
-
-  
-
-  
 
 
 /**
@@ -213,10 +206,10 @@ function getFullNames(runners) {
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
 function firstNamesAllCaps(runners) {
-  const runnersName = [];
-   runners.map((runners) => {
-    runnersName.toUpperCase();
+  const runnersMap = runners.map((runners) => {
+    return (runners.first_name).toUpperCase();
   });
+  return runnersMap;
 }
 
 
@@ -234,9 +227,13 @@ function firstNamesAllCaps(runners) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(/* CODE HERE */) {
-  /* CODE HERE */
+function getRunnersByTShirtSize(runners, tShirtSize) {
+  let shirt = runners.filter(run => {
+    return run.shirt_size === tShirtSize;
+  })
+  return shirt;
 }
+
 
 /**
  * ### Challenge `tallyUpDonations`
@@ -248,7 +245,7 @@ function getRunnersByTShirtSize(/* CODE HERE */) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
+function tallyUpDonations(runners) {
   /* CODE HERE */
 }
 
